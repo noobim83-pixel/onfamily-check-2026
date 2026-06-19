@@ -396,20 +396,18 @@ const COMMITTEES = [
     ]}]},
 ];
 
-/* ============ 저장소 (GitHub 공유) ============ */
+/* ============ 저장소 (GitHub 공유 — 토큰은 URL #k= 에서 읽음) ============ */
 const GH_USER = "noobim83-pixel";
 const GH_REPO = "onfamily-check-2026";
-const GH_BASE = `https://raw.githubusercontent.com/${GH_USER}/${GH_REPO}/main/`;
-const GH_API  = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/`;
+const GH_RAW  = `https://raw.githubusercontent.com/${GH_USER}/${GH_REPO}/main/data.json`;
+const GH_API  = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/data.json`;
 
-let _tok = "";
-async function getToken(){
-  if(_tok) return _tok;
-  try{
-    const r = await fetch(GH_BASE+"config.json?t="+Date.now(),{cache:"no-store"});
-    if(r.ok){ const c=await r.json(); _tok=c.k||""; }
-  }catch(e){}
-  return _tok;
+function getToken(){
+  // URL의 #k= 에서 읽거나 세션에서 가져옴
+  const p = new URLSearchParams(location.hash.replace(/^#/,""));
+  const t = p.get("k");
+  if(t) sessionStorage.setItem("_gk",t);
+  return sessionStorage.getItem("_gk")||"";
 }
 
 let state  = {items:{}, memo:""};
@@ -421,18 +419,18 @@ function parse(v){ try{ const o=JSON.parse(v); return {items:o.items||{},memo:o.
 
 async function rawGet(){
   try{
-    const r = await fetch(GH_BASE+"data.json?t="+Date.now(),{cache:"no-store"});
+    const r = await fetch(GH_RAW+"?t="+Date.now(),{cache:"no-store"});
     return r.ok ? await r.text() : null;
   }catch(e){ return null; }
 }
 
 async function rawSet(v){
-  const tok = await getToken();
-  if(!tok) throw new Error("설정 오류");
+  const tok = getToken();
+  if(!tok) throw new Error("카카오톡 원본 링크로 접속해 주세요");
   const hdr = {"Authorization":`Bearer ${tok}`,"Accept":"application/vnd.github.v3+json"};
-  const metaR = await fetch(GH_API+"data.json",{headers:hdr});
+  const metaR = await fetch(GH_API,{headers:hdr});
   const sha = metaR.ok ? (await metaR.json()).sha : null;
-  const r = await fetch(GH_API+"data.json",{
+  const r = await fetch(GH_API,{
     method:"PUT",
     headers:{...hdr,"Content-Type":"application/json"},
     body:JSON.stringify({
@@ -591,7 +589,7 @@ document.addEventListener("touchend",e=>{
 
 /* ============ 공유 링크 모달 ============ */
 document.getElementById("shareBtn").onclick=()=>{
-  const url = "https://noobim83-pixel.github.io/onfamily-check-2026/";
+  const url = location.href;
   navigator.clipboard.writeText(url)
     .then(()=>{
       const b=document.getElementById("shareBtn");
@@ -635,6 +633,7 @@ syncTimer=setInterval(async()=>{
 
 /* ============ 초기화 ============ */
 (async function init(){
+  getToken(); // URL hash에서 토큰 세션에 저장
   await loadState();
   render();
   document.getElementById("memo").value=state.memo||"";
