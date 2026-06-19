@@ -230,7 +230,7 @@ h1{margin:4px 0 2px;font-size:23px;font-weight:800;letter-spacing:-.01em}
       <div class="status" id="status"><span class="live"></span><span id="statusText">불러오는 중…</span></div>
       <div class="actions">
         <button class="btn ghost" id="refreshBtn">새로고침</button>
-        <button class="btn primary" id="shareBtn">🔗 공유 링크</button>
+        <button class="btn primary" id="shareBtn">🔗 링크 복사</button>
         <button class="btn ghost" id="resetBtn">초기화</button>
       </div>
     </div>
@@ -396,14 +396,21 @@ const COMMITTEES = [
     ]}]},
 ];
 
-/* ============ 저장소 ============ */
-const KEY = "onfamily_check_v1";
-const P   = new URLSearchParams(location.search);
-const BIN = P.get("b") || "";
-const AKEY= P.get("k") || "";
-const CLOUD = !!(BIN && AKEY);
-// Claude artifact storage fallback
-const HAS_CLAUDE = typeof window!=="undefined" && window.storage && typeof window.storage.get==="function";
+/* ============ 저장소 (GitHub 공유) ============ */
+const GH_USER = "noobim83-pixel";
+const GH_REPO = "onfamily-check-2026";
+const GH_BASE = `https://raw.githubusercontent.com/${GH_USER}/${GH_REPO}/main/`;
+const GH_API  = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/`;
+
+let _tok = "";
+async function getToken(){
+  if(_tok) return _tok;
+  try{
+    const r = await fetch(GH_BASE+"config.json?t="+Date.now(),{cache:"no-store"});
+    if(r.ok){ const c=await r.json(); _tok=c.k||""; }
+  }catch(e){}
+  return _tok;
+}
 
 let state  = {items:{}, memo:""};
 let dirty  = new Set();
@@ -413,24 +420,28 @@ let syncTimer = null;
 function parse(v){ try{ const o=JSON.parse(v); return {items:o.items||{},memo:o.memo||""}; }catch(e){ return {items:{},memo:""}; } }
 
 async function rawGet(){
-  if(CLOUD){
-    const r = await fetch(`https://api.jsonbin.io/v3/b/${BIN}/latest`,{headers:{"X-Master-Key":AKEY}});
-    if(!r.ok) throw new Error("JSONBin "+r.status);
-    const j = await r.json();
-    return JSON.stringify(j.record||{});
-  }
-  if(HAS_CLAUDE){ const r=await window.storage.get(KEY,true); return (r&&r.value)?r.value:null; }
-  return localStorage.getItem(KEY);
+  try{
+    const r = await fetch(GH_BASE+"data.json?t="+Date.now(),{cache:"no-store"});
+    return r.ok ? await r.text() : null;
+  }catch(e){ return null; }
 }
+
 async function rawSet(v){
-  if(CLOUD){
-    const r = await fetch(`https://api.jsonbin.io/v3/b/${BIN}`,{
-      method:"PUT", headers:{"Content-Type":"application/json","X-Master-Key":AKEY}, body:v});
-    if(!r.ok) throw new Error("저장 오류 "+r.status);
-    return;
-  }
-  if(HAS_CLAUDE){ return window.storage.set(KEY,v,true); }
-  try{ localStorage.setItem(KEY,v); }catch(e){}
+  const tok = await getToken();
+  if(!tok) throw new Error("설정 오류");
+  const hdr = {"Authorization":`Bearer ${tok}`,"Accept":"application/vnd.github.v3+json"};
+  const metaR = await fetch(GH_API+"data.json",{headers:hdr});
+  const sha = metaR.ok ? (await metaR.json()).sha : null;
+  const r = await fetch(GH_API+"data.json",{
+    method:"PUT",
+    headers:{...hdr,"Content-Type":"application/json"},
+    body:JSON.stringify({
+      message:"체크리스트 업데이트",
+      content:btoa(unescape(encodeURIComponent(v))),
+      ...(sha&&{sha})
+    })
+  });
+  if(!r.ok) throw new Error("저장 오류 "+r.status);
 }
 async function loadState(){
   const v = await rawGet();
@@ -445,7 +456,7 @@ async function saveNow(){
     await rawSet(JSON.stringify(remote));
     state = {items:{...remote.items},memo:remote.memo};
     dirty.clear();
-    setStatus(CLOUD?"cloud":"ok", (CLOUD?"☁️ 공유 저장됨":"저장됨")+" · "+nowHM());
+    setStatus("cloud","☁️ 공유 저장됨 · "+nowHM());
   }catch(e){ setStatus("err","저장 실패 — 다시 시도해 주세요"); }
 }
 function scheduleSave(){ setStatus("saving","변경됨…"); clearTimeout(saveTimer); saveTimer=setTimeout(saveNow,700); }
@@ -579,24 +590,14 @@ document.addEventListener("touchend",e=>{
 },{passive:true});
 
 /* ============ 공유 링크 모달 ============ */
-document.getElementById("shareBtn").onclick=()=>{ document.getElementById("overlay").classList.add("show"); };
-document.getElementById("closeModal").onclick=()=>{ document.getElementById("overlay").classList.remove("show"); };
-document.getElementById("overlay").onclick=e=>{ if(e.target===document.getElementById("overlay")) document.getElementById("overlay").classList.remove("show"); };
-document.getElementById("genBtn").onclick=()=>{
-  const bin=document.getElementById("inputBinId").value.trim();
-  const key=document.getElementById("inputApiKey").value.trim();
-  if(!bin||!key){ alert("Bin ID와 API Key를 모두 입력해 주세요."); return; }
-  const base=location.href.split("?")[0];
-  const url=`${base}?b=${encodeURIComponent(bin)}&k=${encodeURIComponent(key)}`;
-  document.getElementById("resultUrl").textContent=url;
-  document.getElementById("resultBox").style.display="block";
-};
-document.getElementById("copyBtn").onclick=()=>{
-  const url=document.getElementById("resultUrl").textContent;
-  navigator.clipboard.writeText(url).then(()=>{
-    document.getElementById("copyBtn").textContent="✅ 복사됨!";
-    setTimeout(()=>document.getElementById("copyBtn").textContent="링크 복사하기",2000);
-  }).catch(()=>{ prompt("아래 링크를 복사하세요:",url); });
+document.getElementById("shareBtn").onclick=()=>{
+  const url = "https://noobim83-pixel.github.io/onfamily-check-2026/";
+  navigator.clipboard.writeText(url)
+    .then(()=>{
+      const b=document.getElementById("shareBtn");
+      b.textContent="✅ 복사됨!"; setTimeout(()=>b.textContent="🔗 링크 복사",2500);
+    })
+    .catch(()=>{ prompt("카카오톡에 붙여넣으세요:", url); });
 };
 
 /* ============ 컨트롤 ============ */
@@ -608,7 +609,7 @@ document.getElementById("refreshBtn").onclick=async()=>{
   await loadState();
   document.getElementById("memo").value=state.memo||"";
   render();
-  setStatus(CLOUD?"cloud":"ok",(CLOUD?"☁️ 공유 저장":"불러옴")+" · "+nowHM());
+  setStatus("cloud","☁️ 최신 내용 불러옴 · "+nowHM());
 };
 document.getElementById("resetBtn").onclick=async()=>{
   if(!confirm("모든 체크 상태와 메모를 초기화합니다. 계속할까요?")) return;
@@ -627,20 +628,17 @@ window.addEventListener("focus",async()=>{
   await loadState(); document.getElementById("memo").value=state.memo||""; render();
 });
 
-// 공유 모드일 때 30초마다 자동 동기화
-if(CLOUD){
-  syncTimer=setInterval(async()=>{
-    if(dirty.size) return;
-    try{ const v=await rawGet(); if(v){ state=parse(v); document.getElementById("memo").value=state.memo||""; render(); } }catch(e){}
-  },30000);
-}
+syncTimer=setInterval(async()=>{
+  if(dirty.size) return;
+  try{ const v=await rawGet(); if(v){ state=parse(v); document.getElementById("memo").value=state.memo||""; render(); } }catch(e){}
+},30000);
 
 /* ============ 초기화 ============ */
 (async function init(){
   await loadState();
   render();
   document.getElementById("memo").value=state.memo||"";
-  setStatus(CLOUD?"cloud":"ok", CLOUD?("☁️ 공유 모드 연결됨 · "+nowHM()):("불러옴 · "+nowHM()));
+  setStatus("cloud","☁️ 공유 저장 연결됨 · "+nowHM());
 })();
 </script>
 </body>
