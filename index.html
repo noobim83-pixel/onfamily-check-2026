@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 온가족축제 최종 점검</title>
+<!-- 카카오톡 링크 미리보기 -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="2026 온가족축제 최종 점검 체크리스트">
+<meta property="og:description" content="원주영강교회 분과별 준비 점검 · 행사일 2026. 6. 28(주일)">
+<meta property="og:locale"      content="ko_KR">
+<meta name="theme-color"        content="#1F3864">
+<style>
+:root{
+  --navy:#1F3864;--blue:#2F5496;--ink:#1b2330;--sub:#5b6472;
+  --paper:#FAF8F4;--card:#fff;--line:#E8E6DF;
+  --honey:#E29A2E;--honey-soft:#FBEED4;--honey-deep:#B9760F;
+  --done:#2E7D5B;--done-bg:#E3F1E9;--done-line:#BFE0CD;
+  --hold:#C2761A;--hold-bg:#FBEAD2;--hold-line:#EBC68C;
+  --sub-c:#9097A1;
+  --sh:0 1px 2px rgba(31,56,100,.05),0 8px 24px rgba(31,56,100,.06);
+  --r:16px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:140px}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px}
+
+/* ---- 헤더 ---- */
+header.top{position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(150deg,#24406e 0%,#1b3158 60%,#162a4c 100%);
+  border-radius:0 0 22px 22px;box-shadow:var(--sh)}
+.sun{position:absolute;right:-60px;top:-70px;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(231,160,55,.55),rgba(231,160,55,.1) 60%,transparent 70%);
+  filter:blur(1px);pointer-events:none}
+.hwrap{max-width:760px;margin:0 auto;padding:20px 18px 18px;position:relative}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;color:#cdd8ee;font-weight:600}
+h1{margin:4px 0 2px;font-size:23px;font-weight:800;letter-spacing:-.01em}
+.brand{font-size:13.5px;color:#f3d9a7;font-weight:700;margin-top:2px}
+.brand b{color:var(--honey);font-weight:800}
+.church{font-size:12px;color:#aebbd6;margin-top:6px}
+.meter{margin-top:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;padding:12px 14px}
+.meter .row{display:flex;align-items:baseline;justify-content:space-between}
+.meter .big{font-size:15px;font-weight:700}
+.meter .pct{font-size:13px;color:#e7d3a6;font-weight:700}
+.bar{height:11px;border-radius:99px;background:rgba(255,255,255,.16);margin-top:9px;overflow:hidden}
+.bar i{display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,#E29A2E,#F2C262);border-radius:99px;transition:width .5s cubic-bezier(.3,.8,.3,1)}
+.legend{display:flex;gap:14px;margin-top:10px;font-size:12px;color:#cdd8ee;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.dot.d{background:#7ad6a6}.dot.h{background:#f0b65e}.dot.n{background:#9aa6bd}
+
+/* ---- 필터 칩 ---- */
+.filterwrap{position:sticky;top:0;z-index:20;background:var(--paper);padding:12px 0 8px;
+  margin-top:6px;border-bottom:1px solid var(--line)}
+.filterlbl{font-size:12px;color:var(--sub);font-weight:700;padding:0 4px 7px;letter-spacing:.02em}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:0 4px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;border:1.5px solid var(--line);background:#fff;color:var(--sub);
+  padding:8px 13px;border-radius:99px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;
+  transition:.15s;display:inline-flex;align-items:center;gap:7px}
+.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip .mini{font-size:11px;font-weight:800;opacity:.85}
+.chip.on .mini{opacity:1}
+
+/* ---- 위원회 카드 ---- */
+.com{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--sh);margin:14px 0;overflow:hidden}
+.com>.head{display:flex;align-items:center;gap:12px;padding:14px 15px;
+  border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#fcfbf8)}
+.no{flex:0 0 auto;min-width:34px;height:34px;padding:0 7px;border-radius:10px;
+  background:var(--honey-soft);color:var(--honey-deep);font-weight:800;font-size:14px;
+  display:flex;align-items:center;justify-content:center}
+.htext{flex:1 1 auto;min-width:0}
+.cname{font-size:16px;font-weight:800;letter-spacing:-.01em}
+.cmeta{font-size:11.5px;color:var(--sub);margin-top:2px;line-height:1.45}
+.ring{--p:0;width:38px;height:38px;border-radius:50%;
+  background:conic-gradient(var(--honey) calc(var(--p)*1%),#ecebe4 0);
+  display:flex;align-items:center;justify-content:center}
+.ring::after{content:"";width:28px;height:28px;border-radius:50%;background:#fff}
+.cprog{flex:0 0 auto;text-align:right;font-size:11px;color:var(--sub);font-weight:700}
+.cprog .n{font-size:15px;color:var(--navy);font-weight:800}
+.grouplbl{font-size:11.5px;font-weight:800;color:var(--blue);letter-spacing:.02em;padding:11px 15px 2px;background:#fff}
+.item{padding:12px 15px;border-top:1px solid #f1efe9}
+.item .txt{font-size:14.5px;font-weight:600}
+.item .detail{font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.5}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.badge{font-size:11px;font-weight:700;padding:3px 8px;border-radius:7px;background:#f3f1ea;color:#6b7280}
+.badge.owner{background:#eef2fb;color:#3a5694}
+.badge.mid{background:#f4eee2;color:#926b22}
+.seg{display:flex;gap:7px;margin-top:11px}
+.seg button{flex:1 1 0;min-height:42px;border:1.5px solid var(--line);background:#fff;color:var(--sub);
+  border-radius:11px;font-size:13.5px;font-weight:800;cursor:pointer;transition:.12s}
+.seg button:active{transform:scale(.98)}
+.seg button.sel.done{background:var(--done-bg);border-color:var(--done-line);color:var(--done)}
+.seg button.sel.hold{background:var(--hold-bg);border-color:var(--hold-line);color:var(--hold)}
+.seg button.sel.none{background:#eef0f4;border-color:#dfe3ea;color:#3a4250}
+.seg button .ck{display:none}
+.seg button.sel .ck{display:inline}
+.noteline{display:flex;align-items:center;gap:8px;margin-top:9px}
+.noteline label{font-size:11px;color:var(--sub-c);font-weight:700;flex:0 0 auto}
+.note{flex:1 1 auto;border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;
+  font-size:13px;font-family:inherit;color:var(--ink);background:#fcfbf8}
+.note:focus{outline:none;border-color:var(--honey);background:#fff}
+
+/* ---- 종합 메모 ---- */
+.memo{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--sh);margin:14px 0;padding:15px}
+.memo h3{margin:0 0 4px;font-size:15px;color:var(--navy);font-weight:800}
+.memo p{margin:0 0 9px;font-size:12px;color:var(--sub)}
+.memo textarea{width:100%;min-height:96px;border:1.5px solid var(--line);border-radius:11px;
+  padding:11px 12px;font-size:13.5px;font-family:inherit;color:var(--ink);background:#fcfbf8;resize:vertical}
+.memo textarea:focus{outline:none;border-color:var(--honey);background:#fff}
+
+/* ---- 하단 저장 바 ---- */
+.savebar{position:fixed;left:0;right:0;bottom:0;z-index:40;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  padding:10px 14px calc(8px + env(safe-area-inset-bottom))}
+.savebar .inner{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.navrow{display:flex;align-items:center;gap:8px}
+.navbtn{flex:0 0 auto;display:flex;align-items:center;gap:5px;
+  background:var(--navy);color:#fff;border:none;border-radius:12px;
+  font-size:13.5px;font-weight:800;padding:11px 18px;cursor:pointer;transition:.12s}
+.navbtn:active{opacity:.8;transform:scale(.97)}
+.navcenter{flex:1 1 auto;text-align:center;min-width:0}
+.navcenter .cur{font-size:14px;font-weight:800;color:var(--navy);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.navcenter .pos{font-size:11px;color:var(--sub);font-weight:600;margin-top:1px;display:block}
+.statusrow{display:flex;align-items:center;gap:10px;justify-content:space-between;
+  padding-top:7px;border-top:1px solid var(--line)}
+.status{font-size:12px;color:var(--sub);font-weight:600;display:flex;align-items:center;gap:6px;min-width:0;flex:1}
+.live{width:8px;height:8px;border-radius:50%;background:var(--done);flex:0 0 auto}
+.status.saving .live{background:var(--honey);animation:pulse 1s infinite}
+.status.err .live{background:#c0392b}
+.status.cloud .live{background:#3b82f6}
+@keyframes pulse{50%{opacity:.3}}
+.actions{display:flex;gap:6px;flex:0 0 auto}
+.btn{border:1.5px solid var(--line);background:#fff;color:var(--navy);font-weight:800;
+  font-size:12px;padding:8px 11px;border-radius:10px;cursor:pointer}
+.btn:active{transform:scale(.97)}
+.btn.ghost{color:var(--sub)}
+.btn.primary{background:var(--honey);border-color:var(--honey);color:#fff}
+
+/* ---- 공유 링크 설정 모달 ---- */
+.overlay{display:none;position:fixed;inset:0;z-index:100;
+  background:rgba(15,25,45,.55);backdrop-filter:blur(4px);align-items:flex-end;justify-content:center}
+.overlay.show{display:flex}
+.modal{background:#fff;border-radius:24px 24px 0 0;width:100%;max-width:760px;
+  max-height:90vh;overflow-y:auto;padding:24px 20px calc(24px + env(safe-area-inset-bottom))}
+.modal-handle{width:40px;height:4px;background:#e0ddd6;border-radius:99px;margin:0 auto 20px}
+.modal h2{margin:0 0 6px;font-size:20px;font-weight:800;color:var(--navy)}
+.modal .subtitle{font-size:13px;color:var(--sub);margin-bottom:20px;line-height:1.6}
+.step{display:flex;gap:12px;margin-bottom:18px;align-items:flex-start}
+.step-no{flex:0 0 28px;height:28px;border-radius:99px;background:var(--navy);color:#fff;
+  font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.step-body{flex:1}
+.step-body strong{font-size:14px;color:var(--ink);font-weight:800;display:block;margin-bottom:3px}
+.step-body p{margin:0;font-size:13px;color:var(--sub);line-height:1.6}
+.step-body a{color:var(--blue);font-weight:700}
+.field{margin:10px 0}
+.field label{font-size:12px;font-weight:700;color:var(--sub);display:block;margin-bottom:5px}
+.field input{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;
+  font-size:14px;font-family:inherit;color:var(--ink)}
+.field input:focus{outline:none;border-color:var(--honey)}
+.result-box{background:var(--honey-soft);border:1.5px solid #f0d090;border-radius:12px;
+  padding:13px 14px;margin-top:16px;display:none}
+.result-box .lbl{font-size:11px;font-weight:800;color:var(--honey-deep);margin-bottom:6px}
+.result-url{font-size:12px;word-break:break-all;color:var(--navy);font-weight:600;margin-bottom:10px}
+.divider{height:1px;background:var(--line);margin:22px 0}
+.modal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.modal-actions .btn{flex:1 1 auto;text-align:center;padding:12px}
+
+@media(max-width:430px){h1{font-size:21px}.seg button{font-size:12.5px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="sun"></div>
+  <div class="hwrap">
+    <div class="eyebrow">2026 해피데이 온가족축제 · 최종 점검</div>
+    <h1>분과별 준비 점검 체크리스트</h1>
+    <div class="brand">사랑<b>On</b> 믿음<b>On</b> 행복<b>On</b> — 온 가족을 주님께로</div>
+    <div class="church">봄날의 햇살같은 원주영강교회 · 행사일 2026. 6. 28(주일)</div>
+    <div class="meter">
+      <div class="row">
+        <div class="big">전체 준비도</div>
+        <div class="pct" id="pctTop">0%</div>
+      </div>
+      <div class="bar"><i id="barTop"></i></div>
+      <div class="legend">
+        <span><i class="dot d"></i> 완료 <b id="cDone">0</b></span>
+        <span><i class="dot h"></i> 보완필요 <b id="cHold">0</b></span>
+        <span><i class="dot n"></i> 미점검 <b id="cNone">0</b></span>
+        <span style="margin-left:auto">총 <b id="cTot">0</b>개</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="filterwrap">
+    <div class="filterlbl">담당 위원회 선택</div>
+    <div class="chips" id="chips"></div>
+  </div>
+  <div id="list"></div>
+  <div class="memo">
+    <h3>종합 점검 · 미결/결정 사항</h3>
+    <p>회의 중 나온 미결 사항·조치 내용·결정 사항을 함께 기록합니다.</p>
+    <textarea id="memo" placeholder="예) 6/25까지 무대 설치 협의 마무리 — 문화복지위 …"></textarea>
+  </div>
+</div>
+
+<!-- 하단 바 -->
+<div class="savebar">
+  <div class="inner">
+    <div class="navrow">
+      <button class="navbtn" id="prevBtn">◀ 이전</button>
+      <div class="navcenter">
+        <span class="cur" id="navLabel">전체 보기</span>
+        <span class="pos" id="navPos">위원회를 선택하거나 좌우로 넘기세요</span>
+      </div>
+      <button class="navbtn" id="nextBtn">다음 ▶</button>
+    </div>
+    <div class="statusrow">
+      <div class="status" id="status"><span class="live"></span><span id="statusText">불러오는 중…</span></div>
+      <div class="actions">
+        <button class="btn ghost" id="refreshBtn">새로고침</button>
+        <button class="btn primary" id="shareBtn">🔗 공유 링크</button>
+        <button class="btn ghost" id="resetBtn">초기화</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 공유 링크 설정 모달 -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="modal-handle"></div>
+    <h2>🔗 카카오톡 공유 링크 만들기</h2>
+    <p class="subtitle">모든 위원회 담당자가 같은 체크 내용을 공유하려면<br>아래 단계를 따라 한 번만 설정하면 됩니다.</p>
+
+    <div class="step">
+      <div class="step-no">1</div>
+      <div class="step-body">
+        <strong>JSONBin.io 무료 가입</strong>
+        <p><a href="https://jsonbin.io" target="_blank">jsonbin.io</a> 에 접속해서 우측 상단 <b>Sign Up</b> 클릭 → 이메일로 무료 가입합니다.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-no">2</div>
+      <div class="step-body">
+        <strong>Bin(저장소) 만들기</strong>
+        <p>로그인 후 <b>Bins → Create New Bin</b> 클릭<br>내용에 <code style="background:#f3f1ea;padding:1px 5px;border-radius:4px">{"items":{},"memo":""}</code> 입력 후 저장<br>→ 상단 URL에서 <b>Bin ID</b>(긴 숫자)를 복사합니다.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-no">3</div>
+      <div class="step-body">
+        <strong>API Key 복사</strong>
+        <p>우측 상단 프로필 → <b>API Keys → Create API Key</b><br>생성된 키를 복사합니다.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-no">4</div>
+      <div class="step-body">
+        <strong>아래에 입력 후 링크 생성</strong>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Bin ID</label>
+      <input id="inputBinId" placeholder="예) 6853abc1acd3cb34a8b1f234" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="field">
+      <label>API Key</label>
+      <input id="inputApiKey" placeholder="$2b$10$..." type="password" autocomplete="off">
+    </div>
+
+    <div id="resultBox" class="result-box">
+      <div class="lbl">✅ 생성된 공유 링크 — 카카오톡에 붙여넣기</div>
+      <div class="result-url" id="resultUrl"></div>
+      <button class="btn primary" id="copyBtn" style="width:100%;text-align:center;padding:11px">링크 복사하기</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <p style="font-size:13px;color:var(--sub);margin:0 0 12px;font-weight:700">💡 링크를 만든 후 파일 호스팅이 필요하다면</p>
+    <div class="step">
+      <div class="step-no" style="background:var(--honey-deep)">A</div>
+      <div class="step-body">
+        <strong>Netlify Drop으로 무료 호스팅 (30초)</strong>
+        <p><a href="https://app.netlify.com/drop" target="_blank">app.netlify.com/drop</a> 접속<br>이 HTML 파일을 드래그해서 올리면 즉시 URL이 생성됩니다.<br>생성된 URL에 <code style="background:#f3f1ea;padding:1px 5px;border-radius:4px">?b=BinID&k=APIKey</code> 를 붙여서 공유하세요.</p>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn" id="genBtn">링크 생성</button>
+      <button class="btn ghost" id="closeModal">닫기</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ 데이터 ============ */
+const COMMITTEES = [
+  { id:"c1", no:"1", name:"예배성가위원회", meta:"위원장 정진규 장로 · 총무 이혜숙 권사 · 김진수 목사 / 5.30 온라인",
+    groups:[{ label:"실행", items:[
+      {id:"c1-1", text:"찬양 및 성가 준비 요청", detail:"창립기념·새가족 환영 중점", owner:"정진규 장로 · 6.7", mid:"준비 중"},
+      {id:"c1-2", text:"예배 담당자 섭외", detail:"기도·성경봉독·축하공연 등", owner:"6.14", mid:"준비 중"},
+      {id:"c1-3", text:"축하 케익 준비", detail:"예산 1개 100,000원", owner:"6.27", mid:"준비 중"},
+    ]}]},
+  { id:"c1b", no:"1-2", name:"방송팀", meta:"정진규 장로 · 송화재 목사 · 김선경 간사 / 예배성가위원회 협력",
+    groups:[{ label:"협조 요청 — 리허설·음향·영상", items:[
+      {id:"c1b-1", text:"방송실 — 음향 및 영상 지점 확인", detail:"", owner:"방송실 · 6.27", mid:"요청"},
+      {id:"c1b-2", text:"찬양팀 — 리허설 여부 확인", detail:"", owner:"찬양팀 · 6.28", mid:"요청"},
+      {id:"c1b-3", text:"공연팀 — 리허설 및 필요 음향 확인", detail:"", owner:"공연팀 · 6.28", mid:"요청"},
+    ]}]},
+  { id:"c2", no:"2", name:"재정위원회", meta:"김행란 장로 · 김미령 전도사 / 각 위원회 예산 점검 및 결산 집행",
+    groups:[{ label:"실행", items:[
+      {id:"c2-1", text:"각 위원회 예산안 취합 및 점검", detail:"예배성가·봉사·새가족·문화복지 등", owner:"재정위원회", mid:"—"},
+      {id:"c2-2", text:"예산 대비 집행 현황 확인 · 승인", detail:"", owner:"재정위원회 · 6.28", mid:"—"},
+      {id:"c2-3", text:"행사 후 결산 및 정산 처리", detail:"", owner:"재정위원회 · 행사 후", mid:"—"},
+    ]}]},
+  { id:"c3", no:"3", name:"차량관리위원회", meta:"위원장 이만형 장로 · 총무 맹영재 권사 · 최승호 목사 / 6.6 17:00 교회",
+    groups:[{ label:"예정 사역", items:[
+      {id:"c3-1", text:"유아실 내 수유실 설치", detail:"", owner:"6~7월 내", mid:"예정"},
+      {id:"c3-2", text:"【축제 전】 교회 차량 청소 및 관리", detail:"", owner:"6.28 전", mid:"예정"},
+      {id:"c3-3", text:"【축제 전】 교회 시설 점검", detail:"", owner:"6.28 전", mid:"예정"},
+    ]}]},
+  { id:"c4", no:"4", name:"교육위원회", meta:"위원장 한혁 장로 · 성영란 총부장 · 나란히 목사 / 6.6 쉐마강당",
+    groups:[{ label:"전도 계획 진행 여부", items:[
+      {id:"c4-1", text:"【햇살 유치부】 부모와의 교제 확대", detail:"예배 참석이 어려운 부모 대상", owner:"햇살 유치부", mid:"추진"},
+      {id:"c4-2", text:"【햇살 유치부】 홈커밍 주일 추진", detail:"1차 6.21 / 2차 7.19 / 3차 8.23", owner:"햇살 유치부 · 6.21~8.23", mid:"추진"},
+      {id:"c4-3", text:"【봄날 어린이부】 친구 초청 → 명단 작성 → 초청장 제작·전달 → 예배·달란트 잔치", detail:"5.31 → 6.7 → 6.14 → 6.21", owner:"봄날 어린이부 · 5.31~6.21", mid:"진행"},
+      {id:"c4-4", text:"【필그림 청소년교회】 웰컴홈나잇 완료 후 예배 정착 전도", detail:"5.23~24, 방문 40명", owner:"필그림 청소년교회", mid:"완료/전도중"},
+    ]}]},
+  { id:"c5", no:"5", name:"봉사위원회", meta:"위원장 이인규 장로 · 총무 양효례 권사 · 원영숙 전도사 / 5.17 길성이백숙",
+    groups:[
+      { label:"실행", items:[
+        {id:"c5-1", text:"6.28 식당 운영 — 지하식당, 배식대 3개, 전체 남·여신도회 협력", detail:"메뉴: 밥·소고기미역국·잡채·제육볶음·오이무침·김치·식혜·수박·백설기 / 추가: 식당 배려자 및 방문자용 15 테이블 확정", owner:"이인규 장로 · 6.28", mid:"계획"},
+        {id:"c5-2", text:"1·2부(영상예배) / 좌탁 추가 배치 · 새가족석 15개 안내문", detail:"", owner:"봉사위 · 6.28", mid:"계획"},
+        {id:"c5-3", text:"6.28 차량 안내 및 청소", detail:"남신도회 10:50 예배 전 차량 안내 / 남녀신도회 지역별 청소", owner:"남·여신도회 · 6.28", mid:"계획"},
+      ]},
+      { label:"협조 요청", items:[
+        {id:"c5-4", text:"문화복지위원회 — 로비·북카페 차 섬김 주관 요청", detail:"장소: 로비·북카페 / 아이스아메리카노·요구르트 제공 (기존 봉사위에서 문화복지위로 이관)", owner:"→ 문화복지위 · 6.28", mid:"요청"},
+      ]},
+    ]},
+  { id:"c6", no:"6", name:"문화복지위원회", meta:"위원장 박수민 장로 · 작성자 김복순 권사 · 김미령 전도사 / 4.28 투썸",
+    groups:[
+      { label:"실행 (기한 6.27)", items:[
+        {id:"c6-1", text:"코람데오 북카페 운영", detail:"아이스티·아이스아메리카노 음료를 동반자·초청자에게 제공", owner:"문화복지위 · 6.27", mid:"진행중"},
+        {id:"c6-7", text:"로비·북카페 차 섬김", detail:"기존 봉사위 → 문화복지위로 이관 / 장소: 로비와 북카페", owner:"문화복지위 · 6.28", mid:"조정"},
+        {id:"c6-2", text:"환대를 위한 의상 및 헤어밴드 착용", detail:"", owner:"김복순 권사 · 6.27", mid:"진행중"},
+        {id:"c6-3", text:"위생·청결을 위한 기계 및 환경 정리", detail:"", owner:"김복순 권사 · 6.27", mid:"진행중"},
+        {id:"c6-4", text:"가족 포토존 연출", detail:"박윤주 집사 의뢰 예정", owner:"박윤주 집사 · 6.27", mid:"진행중"},
+        {id:"c6-5", text:"지하식당 무대설치", detail:"김미령 전도사 주도, 위원 전원 참여", owner:"문화복지위 · 6.27", mid:"진행중 / 협의중"},
+      ]},
+      { label:"협조 요청", items:[
+        {id:"c6-6", text:"3부예배 후 돕는 인원 2명 요청", detail:"", owner:"3부예배 후", mid:"요청"},
+      ]},
+    ]},
+  { id:"c7", no:"7", name:"새가족위원회", meta:"위원장 박인성 장로 · 총무 선영순 권사 · 원영숙 전도사 / 5.10 교회",
+    groups:[{ label:"실행", items:[
+      {id:"c7-1", text:"방문자 환영선물 준비", detail:"캔티슈 선물세트, 교회 스티커 부착 / 160개 @2,300 = 368,000원", owner:"박인성 장로 · 6.28", mid:"준비 중"},
+      {id:"c7-2", text:"1층 로비 방문카드 작성 테이블 세팅 · 방문카드 준비", detail:"봉사: 새가족부원", owner:"새가족부 · 6.28", mid:"준비 중"},
+    ]}]},
+  { id:"c8", no:"8", name:"여신도회", meta:"총여신도회장 양효례 권사 / 봉사위 식당 운영 협력",
+    groups:[{ label:"실행", items:[
+      {id:"c8-1", text:"교회 청소", detail:"", owner:"여신도회", mid:"—"},
+      {id:"c8-2", text:"식사 준비 지원", detail:"", owner:"여신도회 · 6.28", mid:"—"},
+      {id:"c8-3", text:"다과류 서빙", detail:"", owner:"여신도회 · 6.28", mid:"—"},
+    ]}]},
+  { id:"c9", no:"9", name:"남신도회", meta:"총남신도회장 김대열 / 봉사위 차량 안내 협력",
+    groups:[{ label:"실행", items:[
+      {id:"c9-1", text:"교회 청소", detail:"", owner:"남신도회", mid:"—"},
+      {id:"c9-2", text:"주차 안내", detail:"", owner:"남신도회 · 6.28", mid:"—"},
+      {id:"c9-3", text:"주차 요원 배정", detail:"", owner:"남신도회 · 6.28", mid:"—"},
+    ]}]},
+  { id:"c10", no:"10", name:"엎드림 청년교회", meta:"부장 장기선 피택장로 · 회장 이진솔 · 전경호 목사 / 봉사위 차류 비치 협력",
+    groups:[{ label:"실행", items:[
+      {id:"c10-1", text:"태신자 작정", detail:"", owner:"엎드림 청년교회", mid:"—"},
+      {id:"c10-2", text:"전도프로그램 진행 기획", detail:"", owner:"엎드림 청년교회", mid:"—"},
+      {id:"c10-3", text:"봉사위원회와 차류 비치 협력", detail:"", owner:"엎드림 청년교회", mid:"—"},
+    ]}]},
+  { id:"cx", no:"★", name:"예산 집행 점검", meta:"재정위원회 주관 · 분과별 예산/집행 확인",
+    groups:[{ label:"집행 확인", items:[
+      {id:"cx-1", text:"봉사위원회 — 점심 1,000,000 + 백설기 떡 500,000", detail:"합계 1,500,000원", owner:"재정·봉사위", mid:"집행 전"},
+      {id:"cx-2", text:"새가족위원회 — 캔티슈 160개 @2,300", detail:"368,000원", owner:"재정·새가족위", mid:"집행 전"},
+      {id:"cx-3", text:"예배성가위원회 — 축하 케익 1개", detail:"100,000원", owner:"재정·예배성가위", mid:"집행 전"},
+      {id:"cx-4", text:"문화복지위원회 — 코람데오 북카페 예산에 포함", detail:"무대설치 협의중", owner:"재정·문화복지위", mid:"확인"},
+    ]}]},
+];
+
+/* ============ 저장소 ============ */
+const KEY = "onfamily_check_v1";
+const P   = new URLSearchParams(location.search);
+const BIN = P.get("b") || "";
+const AKEY= P.get("k") || "";
+const CLOUD = !!(BIN && AKEY);
+// Claude artifact storage fallback
+const HAS_CLAUDE = typeof window!=="undefined" && window.storage && typeof window.storage.get==="function";
+
+let state  = {items:{}, memo:""};
+let dirty  = new Set();
+let saveTimer = null;
+let syncTimer = null;
+
+function parse(v){ try{ const o=JSON.parse(v); return {items:o.items||{},memo:o.memo||""}; }catch(e){ return {items:{},memo:""}; } }
+
+async function rawGet(){
+  if(CLOUD){
+    const r = await fetch(`https://api.jsonbin.io/v3/b/${BIN}/latest`,{headers:{"X-Master-Key":AKEY}});
+    if(!r.ok) throw new Error("JSONBin "+r.status);
+    const j = await r.json();
+    return JSON.stringify(j.record||{});
+  }
+  if(HAS_CLAUDE){ const r=await window.storage.get(KEY,true); return (r&&r.value)?r.value:null; }
+  return localStorage.getItem(KEY);
+}
+async function rawSet(v){
+  if(CLOUD){
+    const r = await fetch(`https://api.jsonbin.io/v3/b/${BIN}`,{
+      method:"PUT", headers:{"Content-Type":"application/json","X-Master-Key":AKEY}, body:v});
+    if(!r.ok) throw new Error("저장 오류 "+r.status);
+    return;
+  }
+  if(HAS_CLAUDE){ return window.storage.set(KEY,v,true); }
+  try{ localStorage.setItem(KEY,v); }catch(e){}
+}
+async function loadState(){
+  const v = await rawGet();
+  if(v) state = parse(v);
+}
+async function saveNow(){
+  setStatus("saving","저장 중…");
+  let remote = {items:{},memo:""};
+  try{ const v=await rawGet(); if(v) remote=parse(v); }catch(e){}
+  dirty.forEach(id=>{ if(id==="__memo") remote.memo=state.memo; else remote.items[id]=state.items[id]; });
+  try{
+    await rawSet(JSON.stringify(remote));
+    state = {items:{...remote.items},memo:remote.memo};
+    dirty.clear();
+    setStatus(CLOUD?"cloud":"ok", (CLOUD?"☁️ 공유 저장됨":"저장됨")+" · "+nowHM());
+  }catch(e){ setStatus("err","저장 실패 — 다시 시도해 주세요"); }
+}
+function scheduleSave(){ setStatus("saving","변경됨…"); clearTimeout(saveTimer); saveTimer=setTimeout(saveNow,700); }
+
+/* ============ 헬퍼 ============ */
+function nowHM(){ const d=new Date(); return String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0"); }
+function getItem(id){ return state.items[id]||{s:"none",n:""}; }
+function allItems(){ return COMMITTEES.flatMap(c=>c.groups.flatMap(g=>g.items)); }
+function setStatus(kind,text){
+  const el=document.getElementById("status");
+  el.className="status"+(kind==="saving"?" saving":kind==="err"?" err":kind==="cloud"?" cloud":"");
+  document.getElementById("statusText").textContent=text;
+}
+
+/* ============ 렌더 ============ */
+const STATUSES=["none","done","hold"];
+const STATUS_LABEL={none:"미점검",done:"완료",hold:"보완필요"};
+let filter="all";
+
+function committeeProgress(c){
+  let done=0,tot=0;
+  c.groups.forEach(g=>g.items.forEach(it=>{ tot++; if(getItem(it.id).s==="done") done++; }));
+  return {done,tot};
+}
+function buildChips(){
+  const box=document.getElementById("chips"); box.innerHTML="";
+  const mk=(id,label,extra)=>{
+    const b=document.createElement("button"); b.className="chip"+(filter===id?" on":"");
+    b.innerHTML=label+(extra!=null?` <span class="mini">${extra}</span>`:"");
+    b.onclick=()=>{ filter=id; render(); }; box.appendChild(b);
+  };
+  mk("all","전체",allItems().length);
+  COMMITTEES.forEach(c=>{ const p=committeeProgress(c); mk(c.id,c.no+". "+c.name,p.done+"/"+p.tot); });
+}
+function render(){
+  buildChips();
+  const list=document.getElementById("list"); list.innerHTML="";
+  COMMITTEES.filter(c=>filter==="all"||c.id===filter).forEach(c=>{
+    const p=committeeProgress(c), pct=p.tot?Math.round(p.done/p.tot*100):0;
+    const com=document.createElement("section"); com.className="com";
+    com.innerHTML=`<div class="head">
+      <div class="no">${c.no}</div>
+      <div class="htext"><div class="cname">${c.name}</div><div class="cmeta">${c.meta}</div></div>
+      <div class="cprog">
+        <div class="ring" style="--p:${pct}"></div>
+        <div><span class="n">${p.done}</span>/${p.tot} 완료</div>
+      </div></div>`;
+    c.groups.forEach(g=>{
+      const gl=document.createElement("div"); gl.className="grouplbl"; gl.textContent=g.label; com.appendChild(gl);
+      g.items.forEach(it=>com.appendChild(renderItem(it)));
+    });
+    list.appendChild(com);
+  });
+  updateMeter(); updateNav();
+}
+function renderItem(it){
+  const cur=getItem(it.id);
+  const wrap=document.createElement("div"); wrap.className="item";
+  const badges=[];
+  if(it.owner) badges.push(`<span class="badge owner">${it.owner}</span>`);
+  if(it.mid&&it.mid!=="—") badges.push(`<span class="badge mid">중간점검: ${it.mid}</span>`);
+  wrap.innerHTML=`
+    <div class="txt">${it.text}</div>
+    ${it.detail?`<div class="detail">${it.detail}</div>`:""}
+    ${badges.length?`<div class="badges">${badges.join("")}</div>`:""}
+    <div class="seg" data-id="${it.id}">
+      ${STATUSES.map(s=>`<button class="${s}${cur.s===s?" sel":""}" data-s="${s}">
+        <span class="ck">✓ </span>${STATUS_LABEL[s]}</button>`).join("")}
+    </div>
+    <div class="noteline">
+      <input class="note" placeholder="확인·비고 (담당/기한/특이사항)" value="${(cur.n||"").replace(/"/g,"&quot;")}">
+    </div>`;
+  wrap.querySelectorAll(".seg button").forEach(btn=>{
+    btn.onclick=()=>{
+      const s=btn.dataset.s; state.items[it.id]={s,n:(state.items[it.id]||{}).n||""};
+      dirty.add(it.id);
+      wrap.querySelectorAll(".seg button").forEach(b=>b.classList.toggle("sel",b.dataset.s===s));
+      updateMeter(); updateNav(); scheduleSave();
+    };
+  });
+  wrap.querySelector(".note").addEventListener("input",e=>{
+    state.items[it.id]={s:(state.items[it.id]||{}).s||"none",n:e.target.value};
+    dirty.add(it.id); scheduleSave();
+  });
+  return wrap;
+}
+function updateMeter(){
+  let done=0,hold=0,none=0,tot=0;
+  allItems().forEach(it=>{ tot++; const s=getItem(it.id).s; if(s==="done")done++; else if(s==="hold")hold++; else none++; });
+  const pct=tot?Math.round(done/tot*100):0;
+  document.getElementById("pctTop").textContent=pct+"%";
+  document.getElementById("barTop").style.width=pct+"%";
+  document.getElementById("cDone").textContent=done;
+  document.getElementById("cHold").textContent=hold;
+  document.getElementById("cNone").textContent=none;
+  document.getElementById("cTot").textContent=tot;
+  // ring update
+  const visible=COMMITTEES.filter(c=>filter==="all"||c.id===filter);
+  document.querySelectorAll("#list .com").forEach((el,i)=>{
+    const c=visible[i]; if(!c) return;
+    const p=committeeProgress(c), pct=p.tot?Math.round(p.done/p.tot*100):0;
+    const ring=el.querySelector(".ring"); if(ring) ring.style.setProperty("--p",pct);
+    const n=el.querySelector(".cprog .n"); if(n) n.textContent=p.done;
+  });
+}
+
+/* ============ 내비게이션 ============ */
+const NAV_IDS=()=>["all",...COMMITTEES.map(c=>c.id)];
+function updateNav(){
+  const ids=NAV_IDS(), idx=ids.indexOf(filter);
+  const total=COMMITTEES.length;
+  let label,pos;
+  if(filter==="all"){ label="전체 보기"; pos="위원회를 선택하거나 좌우로 넘기세요"; }
+  else{ const c=COMMITTEES.find(c=>c.id===filter), ci=COMMITTEES.indexOf(c)+1;
+    label=c?c.no+". "+c.name:""; pos=ci+" / "+total+" 위원회"; }
+  document.getElementById("navLabel").textContent=label;
+  document.getElementById("navPos").textContent=pos;
+}
+function navTo(id){ filter=id; render(); window.scrollTo({top:0,behavior:"smooth"}); }
+function prevCommittee(){ const ids=NAV_IDS(); navTo(ids[(ids.indexOf(filter)-1+ids.length)%ids.length]); }
+function nextCommittee(){ const ids=NAV_IDS(); navTo(ids[(ids.indexOf(filter)+1)%ids.length]); }
+
+// 스와이프
+let _tx=0,_ty=0;
+document.addEventListener("touchstart",e=>{_tx=e.changedTouches[0].clientX;_ty=e.changedTouches[0].clientY;},{passive:true});
+document.addEventListener("touchend",e=>{
+  const dx=e.changedTouches[0].clientX-_tx, dy=e.changedTouches[0].clientY-_ty;
+  const tag=document.activeElement?document.activeElement.tagName:"";
+  if(tag==="INPUT"||tag==="TEXTAREA") return;
+  if(Math.abs(dx)>Math.abs(dy)*1.8&&Math.abs(dx)>55){ if(dx<0) nextCommittee(); else prevCommittee(); }
+},{passive:true});
+
+/* ============ 공유 링크 모달 ============ */
+document.getElementById("shareBtn").onclick=()=>{ document.getElementById("overlay").classList.add("show"); };
+document.getElementById("closeModal").onclick=()=>{ document.getElementById("overlay").classList.remove("show"); };
+document.getElementById("overlay").onclick=e=>{ if(e.target===document.getElementById("overlay")) document.getElementById("overlay").classList.remove("show"); };
+document.getElementById("genBtn").onclick=()=>{
+  const bin=document.getElementById("inputBinId").value.trim();
+  const key=document.getElementById("inputApiKey").value.trim();
+  if(!bin||!key){ alert("Bin ID와 API Key를 모두 입력해 주세요."); return; }
+  const base=location.href.split("?")[0];
+  const url=`${base}?b=${encodeURIComponent(bin)}&k=${encodeURIComponent(key)}`;
+  document.getElementById("resultUrl").textContent=url;
+  document.getElementById("resultBox").style.display="block";
+};
+document.getElementById("copyBtn").onclick=()=>{
+  const url=document.getElementById("resultUrl").textContent;
+  navigator.clipboard.writeText(url).then(()=>{
+    document.getElementById("copyBtn").textContent="✅ 복사됨!";
+    setTimeout(()=>document.getElementById("copyBtn").textContent="링크 복사하기",2000);
+  }).catch(()=>{ prompt("아래 링크를 복사하세요:",url); });
+};
+
+/* ============ 컨트롤 ============ */
+document.getElementById("prevBtn").onclick=prevCommittee;
+document.getElementById("nextBtn").onclick=nextCommittee;
+document.getElementById("refreshBtn").onclick=async()=>{
+  if(dirty.size){ if(!confirm("저장되지 않은 변경이 있습니다. 최신 내용을 불러올까요?")) return; await saveNow(); }
+  setStatus("saving","불러오는 중…");
+  await loadState();
+  document.getElementById("memo").value=state.memo||"";
+  render();
+  setStatus(CLOUD?"cloud":"ok",(CLOUD?"☁️ 공유 저장":"불러옴")+" · "+nowHM());
+};
+document.getElementById("resetBtn").onclick=async()=>{
+  if(!confirm("모든 체크 상태와 메모를 초기화합니다. 계속할까요?")) return;
+  state={items:{},memo:""}; dirty.clear();
+  try{ await rawSet(JSON.stringify(state)); }catch(e){}
+  document.getElementById("memo").value=""; render();
+  setStatus("ok","초기화됨 · "+nowHM());
+};
+document.getElementById("memo").addEventListener("input",e=>{
+  state.memo=e.target.value; dirty.add("__memo"); scheduleSave();
+});
+window.addEventListener("focus",async()=>{
+  if(dirty.size) return;
+  const tag=document.activeElement?document.activeElement.tagName:"";
+  if(tag==="INPUT"||tag==="TEXTAREA") return;
+  await loadState(); document.getElementById("memo").value=state.memo||""; render();
+});
+
+// 공유 모드일 때 30초마다 자동 동기화
+if(CLOUD){
+  syncTimer=setInterval(async()=>{
+    if(dirty.size) return;
+    try{ const v=await rawGet(); if(v){ state=parse(v); document.getElementById("memo").value=state.memo||""; render(); } }catch(e){}
+  },30000);
+}
+
+/* ============ 초기화 ============ */
+(async function init(){
+  await loadState();
+  render();
+  document.getElementById("memo").value=state.memo||"";
+  setStatus(CLOUD?"cloud":"ok", CLOUD?("☁️ 공유 모드 연결됨 · "+nowHM()):("불러옴 · "+nowHM()));
+})();
+</script>
+</body>
+</html>
